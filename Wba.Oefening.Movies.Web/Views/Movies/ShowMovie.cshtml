@@ -1,0 +1,27 @@
+﻿@model MoviesShowMovieViewModel
+
+<div class="row">
+    <div class="col col-lg-4 mx-auto text-center">
+        <div class="card" style="width: 18rem;">
+            <!--tips: add .text-center,.text-right to the .card to change card text alignment-->
+            <img src="~/images/@Model.Image" class="card-img-top" alt="@Model.Value">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Value</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Genre</h6>
+                <p class="card-text">@Model.Genre.Value</p>
+                <h6 class="card-subtitle mb-2 text-muted">Actors</h6>
+                @foreach (var actor in Model.Actors)
+                {
+                    <p class="card-text">@actor.Value</p>
+                }
+                <h6 class="card-subtitle mb-2 text-muted">Directors</h6>
+                @foreach (var director in Model.Directors)
+                {
+                    <p class="card-text">@director.Value</p>
+                }
+                <a asp-controller="Movies" asp-action="Index"
+                   class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
